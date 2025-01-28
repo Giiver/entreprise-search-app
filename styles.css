@@ -1,0 +1,185 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: end;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  table-layout: fixed;
+}
+
+thead {
+  background-color: #f8f9fa;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+th {
+  font-weight: bold;
+  color: #495057;
+}
+
+th:nth-child(1) { width: 25%; } /* Nom de la société */
+th:nth-child(2) { width: 15%; } /* SIRET */
+th:nth-child(3) { width: 20%; } /* Dirigeant */
+th:nth-child(4) { width: 30%; } /* Adresse complète */
+th:nth-child(5) { width: 10%; } /* Code Postal */
+
+td:nth-child(4) {
+  white-space: pre-line;
+  line-height: 1.4;
+  min-height: 50px;
+}
+
+tr:hover td {
+  background-color: #f8f9fa;
+}
+
+td {
+  position: relative;
+}
+
+td:hover {
+  overflow: visible;
+  z-index: 1;
+}
+
+td:hover::after {
+  content: attr(data-full-content);
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: white;
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-width: 200px;
+  z-index: 2;
+}
+
+td[data-full-content]:hover::after {
+  display: block;
+}
+
+.results-info {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  color: #495057;
+}
+
+#pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#current-page {
+  font-weight: bold;
+  color: #495057;
+}
+
+#loading {
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  form {
+    grid-template-columns: 1fr;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
